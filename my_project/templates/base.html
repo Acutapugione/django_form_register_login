@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{title}}{% else %}My web app{% endif %}</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url "login" %}">Login</a></li>
+            <li><a href="{% url "register" %}">Register</a></li>
+            <li><a href="{% url "logout" %}">Logout</a></li>
+        </ul>
+    </nav>
+    {% block messages %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">  <!-- singular -->
+                    <a class="close" data-dismiss="alert">×</a>
+                    {{ message|safe }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+    {% block main %}
+    {% endblock main %}
+</body>
+</html>
