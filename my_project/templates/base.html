@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if title %}{{title}}{% else %}My web app{% endif %}</title>
 </head>
-<body>
+<body 
+{% if style_settings %}
+style="background-color:{{style_settings.background_color}}; 
+color:{{style_settings.text_color}}"
+{% endif %}
+>
     <nav>
         <ul>
             <li><a href="{% url "login" %}">Login</a></li>

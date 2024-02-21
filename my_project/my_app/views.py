@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.views import generic
 from .models import Product
 from .forms import ProductForm, ProductFormSet, NewUserCreationForm, LoginForm
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, get_user
 
 def login_view(request):
     form = LoginForm(request, data=request.POST)
